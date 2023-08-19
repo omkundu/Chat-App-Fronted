@@ -9,7 +9,15 @@ function App() {
 
   useEffect(() => {
     setSocket(io("http://localhost:4000"));
+   
   }, []);
+
+  useEffect(() => {
+    if(!socket) return;
+      socket.on("message-from-server",()=>{
+       console.log("messaged recieved")
+      });
+  }, [socket]);
 
   function handleForm(e) {
     e.preventDefault();
