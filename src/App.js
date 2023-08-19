@@ -14,8 +14,8 @@ function App() {
 
   useEffect(() => {
     if(!socket) return;
-      socket.on("message-from-server",()=>{
-       console.log("messaged recieved")
+      socket.on("message-from-server",(data)=>{
+       console.log("messaged recieved",data)
       });
   }, [socket]);
 
